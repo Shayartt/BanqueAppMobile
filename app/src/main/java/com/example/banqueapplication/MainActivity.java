@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
     }
     public void addSolde(View view) {
-
+        TextView msg_err = (TextView) findViewById(R.id.error);
         TextView montantView = (TextView) findViewById(R.id.montantInput);
         String montant = montantView.getText().toString();
         if (!montant.isEmpty()) {
@@ -46,15 +46,18 @@ public class MainActivity extends AppCompatActivity {
                 History tmp_history = new History(num, montant, date);
                 montantView.setText("");
                 num++;
+                msg_err.setText("");
                 arrayList.add(tmp_history);
                 arrayAdapter.notifyDataSetChanged();
             }
             else {
-
+                msg_err.setText("Veuillez entrez une date do format MM/dd/yy.");
+                System.out.println("Veuillez entrez une date do format MM/dd/yy.");
             }
         }
         else {
-            montantView.setText("Montant Empty please fill ");
+            msg_err.setText("Veuillez entrez un montant correcte ");
+            System.out.println("Veuillez entrez un montant correcte");
         }
     }
 }

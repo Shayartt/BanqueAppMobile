@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BanqueApplication">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustNothing"> <!-- We did that so the history layout will not move when we display the keyboard -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

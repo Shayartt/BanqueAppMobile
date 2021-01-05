@@ -15,13 +15,13 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryAdapter extends ArrayAdapter<History> {
+public class HistoryAdapter extends ArrayAdapter<History> { //This class is used to create our custom ListView
     private static final String TAG = "HistoryListAdapter";
     private Context mContext;
-    private ArrayList<History> history;
+    private ArrayList<History> history; //Declaring an array list of our History class
     private int mResource;
 
-    public HistoryAdapter(@NonNull Context context, int resource, @NonNull ArrayList<History> objects) {
+    public HistoryAdapter(@NonNull Context context, int resource, @NonNull ArrayList<History> objects) { //The constructor of our adapter with our context and ressources
         super(context, resource, objects);
         this.mContext = context;
         mResource = resource;
@@ -39,25 +39,25 @@ public class HistoryAdapter extends ArrayAdapter<History> {
     @Override
     public History getItem(int position) {
         return history.get(position);
-    }
+    } //Return the item in the giving position
 
     @Override
     public int getPosition(@Nullable History item) {
         return history.indexOf(item);
-    }
+    } //To get the position of certain item
 
     @Override
     public long getItemId(int position) {
         return position;
-    }
+    } //get position by itemID
 
-    public View getView(int position, View convertView, ViewGroup parents){
+    public View getView(int position, View convertView, ViewGroup parents){ //Get the view in a given position
         if ( convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(mResource,parents,false);
+            // Inflate our layer from the custom context and using our ressources
         }
-        //History histor = history.get(position);
 
-        TextView Num = (TextView) convertView.findViewById(R.id.textNum);
+        TextView Num = (TextView) convertView.findViewById(R.id.textNum); //For the labels in our application
         TextView Montant = (TextView) convertView.findViewById(R.id.textMontant);
         TextView Date = (TextView) convertView.findViewById(R.id.textDate);
         Num.setText(getItem(position).getNum().toString());
@@ -68,22 +68,3 @@ public class HistoryAdapter extends ArrayAdapter<History> {
     }
 
 }
-//@NonNull
-//    @Override
-//    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        Integer Num = getItem(position).getNum();
-//        String Montant = getItem(position).getMontant();
-//        String Date = getItem(position).getDate();
-//        History new_history = new History(Num,Montant,Date);
-//
-//        LayoutInflater inflater = LayoutInflater.from(mContext);
-//        convertView = inflater.inflate(mResource,parent,false);
-//        TextView tvNum = (TextView) convertView.findViewById(R.id.numHistory);
-//        TextView tvMontant = (TextView) convertView.findViewById(R.id.montantHistory);
-//        TextView tvDate = (TextView) convertView.findViewById(R.id.dateHistory);
-//        tvDate.setText(Date);
-//        tvMontant.setText(Montant);
-//        tvNum.setText(Num);
-//        return convertView;
-//    }
-//}

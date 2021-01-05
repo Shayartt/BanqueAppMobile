@@ -1,16 +1,16 @@
 package com.example.banqueapplication;
 
-public class History {
-    private Integer Num;
-    private String Montant;
-    private String Date ;
+public class History { // This is the class i'll be using to store the history cache during the execution time
+    private Integer Num; // Number (Primary Key) of Transaction
+    private String Montant; // Value of transaction
+    private String Date ; // Date of transaction
 
-    public History(Integer num, String montant, String date) {
+    public History(Integer num, String montant, String date) { //Constructor of the history classes
         Num = num;
         Montant = montant;
         Date = date;
     }
-
+    // Getters and setters
     public Integer getNum() {
         return Num;
     }

@@ -46,8 +46,16 @@ public class MainActivity extends AppCompatActivity {
         TextView montantView = (TextView) findViewById(R.id.montantInput); //Getting the textView for value of transaction
         String montant = montantView.getText().toString(); // geting the value of the last textView an casting it to string
         TextView history_label = (TextView) findViewById(R.id.historyLabel);
-        history_label.setText("L'historique des transactions :");
+
         if (!montant.isEmpty() && isNumeric(montant)) { // In case the user didn't enter a good value (not empty and a number)
+            if (montant.indexOf("-") != -1) {
+                montant = montant.substring(1);
+                if (Double.parseDouble(montant) > my_solde) {
+                    msg_err.setText("Votre solde est insuffisant ");
+                    return;
+                }
+            }
+            history_label.setText("L'historique des transactions :");
             TextView soldeView = (TextView) findViewById(R.id.soldeView2);
             TextView dateView = findViewById(R.id.dateInput);
             String date = dateView.getText().toString(); //Getting the input date

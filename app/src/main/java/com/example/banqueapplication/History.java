@@ -1,11 +1,18 @@
 package com.example.banqueapplication;
 
+
+
+
+
+import java.time.LocalDate;
+
 public class History { // This is the class i'll be using to store the history cache during the execution time
+
     private Integer Num; // Number (Primary Key) of Transaction
     private String Montant; // Value of transaction
-    private String Date ; // Date of transaction
+    private LocalDate Date ; // Date of transaction
 
-    public History(Integer num, String montant, String date) { //Constructor of the history classes
+    public History(Integer num, String montant, LocalDate date) { //Constructor of the history classes
         Num = num;
         Montant = montant;
         Date = date;
@@ -27,11 +34,11 @@ public class History { // This is the class i'll be using to store the history c
         Montant = montant;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         Date = date;
     }
 }

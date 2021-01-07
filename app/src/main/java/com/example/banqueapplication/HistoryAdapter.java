@@ -62,7 +62,8 @@ public class HistoryAdapter extends ArrayAdapter<History> { //This class is used
         TextView Date = (TextView) convertView.findViewById(R.id.textDate);
         Num.setText(getItem(position).getNum().toString());
         Montant.setText(getItem(position).getMontant());
-        Date.setText(getItem(position).getDate());
+        Date.setText(getItem(position).getDate().toString());
+
 
         return convertView;
     }
